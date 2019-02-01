@@ -153,26 +153,16 @@ namespace I2C_LCD1602 {
     //% blockId="I2C_LCD1620_CUSTOM_CHR" block="Custom Char"
     //% weight=60 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
-    export function CustomChar(): void {
-        //    let dataArr: number[] = [Start_Byte, CMD_Bytes_Count, CMD, highByte, lowByte, End_Byte]
-
-        //let bChar: number[] = [0x00,0x1b,0x15,0x11,0x0a,0x04,0x00,0x00]
-          let bChar: number[] = [0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07]  
+    export function CustomChar(): void {//display characters
   	cmd(LCD_CURSORON)
-	    basic.pause(5)
-	    cmd(0x86)
-		basic.pause(5)
-	let location: number
-        // we only have 8 locations 0-7
-	location = 0
-	//location &= 0x7
-	//cmd(LCD_SETCGRAMADDR | (location << 3))
-	    
-	//cmd(LCD_SETCGRAMADDR)
-	    dat(0x00)
-        /*for (let i = 0; i < 8; i++) {
-            dat(bChar[i])
-        } */ 
+	basic.pause(5)
+	cmd(0x86)
+	basic.pause(5)
+	dat(0x00)	    
+	cmd(0x88)
+	basic.pause(5)
+	dat(0x01)
+
     }
     
 
