@@ -152,11 +152,12 @@ namespace I2C_LCD1602 {
 
         let bell: number[] = [0x4, 0xe, 0xe, 0xe, 0x1f, 0x0, 0x4]
 
-        let location = 0
-        location &= 0x7; // we only have 8 locations 0-7
-	cmd(LCD_SETCGRAMADDR | (location << 3));        
+        let location: number
+        // we only have 8 locations 0-7
+	location &= 0x7
+	cmd(LCD_SETCGRAMADDR | (location << 3))
         for (let i = 0; i < 8; i++) {
-            dat(charmap[i]);
+            dat(charmap[i])
         }        
     }
     
