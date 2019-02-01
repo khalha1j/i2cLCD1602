@@ -154,37 +154,18 @@ namespace I2C_LCD1602 {
 
         let location: number
         // we only have 8 locations 0-7
+	location = 0
 	location &= 0x7
-	//cmd(LCD_SETCGRAMADDR | (location << 3))
+	cmd(LCD_SETCGRAMADDR | (location << 3))
 	    
-	cmd(LCD_SETCGRAMADDR)
+	//cmd(LCD_SETCGRAMADDR)
         for (let i = 0; i < 7; i++) {
             dat(bChar[i])
         }  
-	    
-	cmd(0)
+	   cmd(0x84)
     }
     
     
-     /**
-     * RAW Custom Char
-     */
-    //% blockId="I2C_LCD1620_RAW_CUSTOM_CHR" block="Raw Custom Char"
-    //% weight=60 blockGap=8
-    //% parts=LCD1602_I2C trackArgs=0
-    export function RawCustomChar(): void {
-        let bell: number[] = [0x4, 0xe, 0xe, 0xe, 0x1f, 0x0, 0x4]
-
-        let location: number
-        // we only have 8 locations 0-7
-	location &= 0x7
-	RS=0
-	
-	cmd(LCD_SETCGRAMADDR | (location << 3))
-        for (let i = 0; i < 8; i++) {
-            dat(bell[i])
-        }        
-    }
     
     
     /**
