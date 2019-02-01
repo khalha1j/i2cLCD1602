@@ -152,7 +152,9 @@ namespace I2C_LCD1602 {
 
         let bChar: number[] = [0x10,0x10,0x16,0x19,0x11,0x11,0x1E]
 
-        let location: number
+  	cmd(0x84)
+
+	let location: number
         // we only have 8 locations 0-7
 	location = 0
 	location &= 0x7
@@ -162,7 +164,6 @@ namespace I2C_LCD1602 {
         for (let i = 0; i < 7; i++) {
             dat(bChar[i])
         }  
-	   cmd(0x84)
     }
     
     
