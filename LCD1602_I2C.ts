@@ -155,10 +155,12 @@ namespace I2C_LCD1602 {
         let location: number
         // we only have 8 locations 0-7
 	location &= 0x7
-	cmd(LCD_SETCGRAMADDR | (location << 3))
+	//cmd(LCD_SETCGRAMADDR | (location << 3))
+	cmd(LCD_SETCGRAMADDR)
         for (let i = 0; i < 8; i++) {
             dat(bChar[i])
         }  
+	    
 	cmd(0)
     }
     
