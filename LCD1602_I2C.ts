@@ -9,6 +9,50 @@
  */
 //% weight=20 color=#0fbc11 icon="▀"
 namespace I2C_LCD1602 {
+    
+    //  ************************************* START
+    let LCD_CLEARDISPLAY        = 0x01
+    let LCD_RETURNHOME          = 0x02
+    let LCD_ENTRYMODESET        = 0x04
+    let LCD_DISPLAYCONTROL      = 0x08
+    let LCD_CURSORSHIFT         = 0x10
+    let LCD_FUNCTIONSET         = 0x20
+    let LCD_SETCGRAMADDR        = 0x40
+    let LCD_SETDDRAMADDR        = 0x80
+    // Entry flags
+    let LCD_ENTRYRIGHT          = 0x00
+    let LCD_ENTRYLEFT           = 0x02
+    let LCD_ENTRYSHIFTINCREMENT = 0x01
+    let LCD_ENTRYSHIFTDECREMENT = 0x00
+    // Control flags
+    let LCD_DISPLAYON           = 0x04
+    let LCD_DISPLAYOFF          = 0x00
+    let LCD_CURSORON            = 0x02
+    let LCD_CURSOROFF           = 0x00
+    let LCD_BLINKON             = 0x01
+    let LCD_BLINKOFF            = 0x00
+    // Move flags
+    let LCD_DISPLAYMOVE         = 0x08
+    let LCD_CURSORMOVE          = 0x00
+    let LCD_MOVERIGHT           = 0x04
+    let LCD_MOVELEFT            = 0x00
+    // Function set flags
+    let LCD_8BITMODE            = 0x10
+    let LCD_4BITMODE            = 0x00
+    let LCD_2LINE               = 0x08
+    let LCD_1LINE               = 0x00
+    let LCD_5x10DOTS            = 0x04
+    let LCD_5x8DOTS             = 0x00
+
+    let rs : DigitalPin
+    let en : DigitalPin
+    let d7 : DigitalPin
+    let d6 : DigitalPin
+    let d5 : DigitalPin
+    let d4 : DigitalPin
+    let backlight : DigitalPin
+// ***************************************************END
+    
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
     let BK: number      // backlight control
     let RS: number      // command/data
