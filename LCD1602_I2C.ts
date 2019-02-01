@@ -167,9 +167,10 @@ namespace I2C_LCD1602 {
 	//cmd(LCD_SETCGRAMADDR | (location << 3))
 	    
 	//cmd(LCD_SETCGRAMADDR)
-        for (let i = 0; i < 8; i++) {
+	    dat(bChar[i])
+        /*for (let i = 0; i < 8; i++) {
             dat(bChar[i])
-        }  
+        } */ 
     }
     
 
