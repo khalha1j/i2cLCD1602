@@ -139,6 +139,31 @@ namespace I2C_LCD1602 {
         cmd(0x01)       // clear
     }
 
+    
+    
+     /**
+     * Custom Char
+     */
+    //% blockId="I2C_LCD1620_CUSTOM_CHR" block="Custom Char"
+    //% weight=60 blockGap=8
+    //% parts=LCD1602_I2C trackArgs=0
+    export function CustomChar(): void {
+        //    let dataArr: number[] = [Start_Byte, CMD_Bytes_Count, CMD, highByte, lowByte, End_Byte]
+
+        let bell : number[] = {0x4, 0xe, 0xe, 0xe, 0x1f, 0x0, 0x4};
+
+        let location = 0
+        location &= 0x7; // we only have 8 locations 0-7
+	cmd(LCD_SETCGRAMADDR | (location << 3));        
+        for (let i = 0; i < s.length; i++) {
+            dat(charmap[i]);
+        }        
+    }
+    
+    
+    
+    
+    
     /**
      * show a number in LCD at given position
      * @param n is number will be show, eg: 10, 100, 200
