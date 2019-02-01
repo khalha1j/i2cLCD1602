@@ -137,6 +137,10 @@ namespace I2C_LCD1602 {
         cmd(0x0C)
         cmd(0x06)
         cmd(0x01)       // clear
+	    
+	//HAK1
+	    basic.pause(10)
+	    CreateCustomChar()
     }
 
     
@@ -162,12 +166,27 @@ namespace I2C_LCD1602 {
 	//location &= 0x7
 	//cmd(LCD_SETCGRAMADDR | (location << 3))
 	    
-	cmd(LCD_SETCGRAMADDR)
+	//cmd(LCD_SETCGRAMADDR)
         for (let i = 0; i < 8; i++) {
             dat(bChar[i])
         }  
     }
     
+
+    //Create Custom Char At initialization
+ function CreateCustomChar() {
+        let bChar: number[] = [0x00,0x1b,0x15,0x11,0x0a,0x04,0x00,0x00]
+	let location: number
+        // we only have 8 locations 0-7
+	location = 0
+	//location &= 0x7
+	//cmd(LCD_SETCGRAMADDR | (location << 3))
+	    
+	cmd(LCD_SETCGRAMADDR)
+        for (let i = 0; i < 8; i++) {
+            dat(bChar[i])
+        }  
+    }
     
     
     
