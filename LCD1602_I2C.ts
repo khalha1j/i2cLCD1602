@@ -154,8 +154,8 @@ namespace I2C_LCD1602 {
     export function CustomChar(): void {
         //    let dataArr: number[] = [Start_Byte, CMD_Bytes_Count, CMD, highByte, lowByte, End_Byte]
 
-        let bChar: number[] = [0x00,0x1b,0x15,0x11,0x0a,0x04,0x00,0x00]
-            
+        //let bChar: number[] = [0x00,0x1b,0x15,0x11,0x0a,0x04,0x00,0x00]
+          let bChar: number[] = [0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07]  
   	cmd(LCD_CURSORON)
 	    basic.pause(5)
 	    cmd(0x86)
@@ -175,7 +175,7 @@ namespace I2C_LCD1602 {
 
     //Create Custom Char At initialization
  function CreateCustomChar() {
-        let bChar: number[] = [0x00,0x1b,0x15,0x11,0x0a,0x04,0x00,0x00]
+        let bChar: number[] = [0x04,  0x00,  0x1E,  0x03,  0x0E,  0x10,  0x10,  0x0F]
 	let location: number
         // we only have 8 locations 0-7
 	location = 0
